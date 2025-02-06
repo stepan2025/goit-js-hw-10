@@ -57,3 +57,16 @@ img {
   font-size: 20px;
   font-weight: 500;
 }
+
+fieldset {
+  margin: 10px 0px;
+  max-width: 170px;
+}
+
+.form > label {
+  display: flex;
+  flex-direction: column;
+  max-width: 197px;
+  gap: 10px;
+  margin-top: 8px;
+}
