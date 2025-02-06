@@ -3,7 +3,6 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-// Ініціалізація бібліотеки flatpickr
 const datetimePicker = flatpickr('#datetime-picker', {
   enableTime: true,
   time_24hr: true,
@@ -13,7 +12,6 @@ const datetimePicker = flatpickr('#datetime-picker', {
     const userSelectedDate = selectedDates[0];
     const currentDate = new Date();
 
-    // Валідація дати
     if (userSelectedDate < currentDate) {
       iziToast.error({
         title: 'Error',
@@ -26,12 +24,10 @@ const datetimePicker = flatpickr('#datetime-picker', {
   },
 });
 
-// Функція для додавання ведучого нуля
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
 
-// Функція для конвертації мілісекунд у дні, години, хвилини та секунди
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
@@ -46,12 +42,10 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-// Обробник натискання на кнопку Start
 document.addEventListener('DOMContentLoaded', function () {
   const startButton = document.querySelector('[data-start]');
   const datetimePicker = document.querySelector('#datetime-picker');
 
-  // Перевірка, чи елементи існують
   if (startButton && datetimePicker) {
     flatpickr(datetimePicker, {
       enableTime: true,
@@ -71,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     });
 
-    // Підключення обробника події для кнопки
     startButton.addEventListener('click', function () {
       const selectedDate = datetimePicker.value;
       const timerTarget = new Date(selectedDate).getTime();
